@@ -181,8 +181,3 @@ The experimental protocol and steering-layer criterion follow LayerNavigator
 (Sun et al., NeurIPS 2025, https://github.com/Bryson-Arrot/LayerNavigator). The behavior data come
 from Anthropic's model-written evaluations (Perez et al., 2023, https://github.com/anthropics/evals),
 released under CC BY 4.0; see `data/README.md`.
-
-## License
-
-No license has been chosen for the code yet. The data in `data/anthropic_persona/` remains under
-its original CC BY 4.0 license.

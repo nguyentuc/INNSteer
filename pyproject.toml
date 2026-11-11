@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "innsteer"
+version = "1.0.0"
+description = "INNSteer: invertible latent transformations for controlling LLM behavior (NeurIPS 2026)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Tuc Nguyen" }, { name = "Thai Le" }]
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.43",
+    "numpy<2",
+    "scikit-learn>=1.3",
+    "accelerate>=0.29",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2606.08454"
+Homepage = "https://innsteer.github.io/"
+
+[tool.setuptools]
+packages = ["innsteer"]

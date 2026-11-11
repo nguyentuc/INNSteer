@@ -129,32 +129,6 @@ hyperparameters were tuned per setting by a validation grid search over coupling
 {3e-4, 5e-4, 1e-3}. The selected value for each model and behavior is not included in this
 release, so results with the defaults can differ from the paper's numbers.
 
-## What is and is not reproducible with this release
-
-| Paper result | Status |
-|---|---|
-| Table 1 / Fig. 1: INNSteer, Base and MD (CAA) on 5 LLMs × 6 behaviors (Prob, PPL) | Included (`scripts/run_persona.py`); per-setting hyperparameters must be re-tuned, see above |
-| Fig. 4 layer robustness (INNSteer curve) | Included via `--layer`; baseline curves not included |
-| Latent geometry diagnostics (D, reconstruction error, linear probe, kNN) | Included (`innsteer/inn_evaluate.py`, printed per run) |
-| Other baselines (RepE PoD/PoE, ITI, HPR, REC, LAcT, TruthFlow, ODESteer) | Not included |
-| LoRA fine-tuning comparison (Fig. 3) | Not included |
-| Refusal and hallucination (Table 2), open-ended LLM-judge scores | Not included |
-| Vision-language hallucination (POPE) | Not included |
-| MMLU capability preservation, training-cost table | Not included |
-| PCA-based latent direction, synthetic two-ring figure | Not included (the minimal example is a related illustration) |
-
-Notes on the released code relative to the paper text:
-
-* The INN uses affine coupling layers with tanh-bounded scales and identity initialization; it has
-  no ActNorm layers.
-* The held-out checkpoint score is `−NLL + λ_dir · ‖μ⁺ − μ⁻‖/√d`; the log-determinant term in the
-  paper's selection formula is not included in the released score.
-* The paper's implementation built on the LayerNavigator codebase, which has no license, so that
-  code is not redistributed here. Data loading, prompt formatting, activation collection, layer
-  scoring and evaluation were re-implemented for this release to match the same protocol
-  (prompts, Yes/No probability metric, perplexity procedure and z-scored `D + C` layer score).
-  Small numerical differences from the paper's runs are possible.
-
 ## Verified
 
 On CPU (no GPU available), in a fresh Python 3.10 environment with `requirements.txt`:

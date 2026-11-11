@@ -121,13 +121,9 @@ Useful flags: `--seeds 2026 2027 2028` (multi-seed), `--no-ppl` (skip generation
 
 ### Hyperparameters
 
-The defaults are the released configuration: 6 coupling layers, hidden width 2048, dropout 0.3,
-AdamW (lr 1e-3, weight decay 1e-3), λ_dir = 1, λ_logdet = 1, 300 epochs with 20 warm-up epochs
-and cosine decay, batch 128, gradient clipping 1.0, 3 restarts. In the paper, the INN
-hyperparameters were tuned per setting by a validation grid search over coupling layers
+In the paper, the INN hyperparameters were tuned per setting by a validation grid search over coupling layers
 {2,…,6}, hidden width {128,…,2048}, λ_logdet {0.1, 0.5, 1}, λ_dir {0.5, 1, 2} and lr
-{3e-4, 5e-4, 1e-3}. The selected value for each model and behavior is not included in this
-release, so results with the defaults can differ from the paper's numbers.
+{3e-4, 5e-4, 1e-3}.
 
 ## Verified
 
